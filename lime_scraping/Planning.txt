@@ -1,0 +1,49 @@
+- Enter names manually here @____
+Table 1: TrackedUsers:
+    username
+
+Table 2 (Generated From Table1): : User Info:
+    id: int
+    username: str
+    displayname: str
+    
+    rawDescription: str
+
+    followersCount: int
+    friendsCount: int
+
+    profileImageUrl: str
+    profileBannerUrl: str
+
+ (Tweet Scrape from Tracked Users -> SCrape all in table 1 and use table 2 for id and scrape info if it doesn't exist)
+Table 3
+Store Tweet Info:
+    id: int
+    url: str
+    date: datetime
+
+*   user: user.id
+
+    rawContent: str
+
+    replyCount: int
+    retweetCount: int
+    likeCount: int
+    quoteCount: int
+    hashtags: list[str]
+    cashtags: list[str]
+
+    mentionedUsers: list[UserRef]
+    links: list[TextLink]
+
+    viewCount: int | None = None
+    retweetedTweet: Optional["Tweet"] = None
+    quotedTweet: Optional["Tweet"] = None
+
+    inReplyToTweetId: int | None = None
+    inReplyToUser: UserRef | None = None
+
+    source: str | None = None
+    sourceUrl: str | None = None
+    sourceLabel: str | None = None
+    media: Optional["Media"] = None
